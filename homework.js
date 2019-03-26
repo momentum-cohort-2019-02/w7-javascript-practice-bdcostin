@@ -25,8 +25,7 @@ greeting(`Chase`);
 function isOdd(n) {
     if (n % 2 === 1 || n % 2 === -1) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -38,8 +37,7 @@ function isOdd(n) {
 function isEven(n) {
     if (n % 2 === 0) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -82,8 +80,7 @@ function fahrenheitToKelvin(n) {
 function lesser(x, y) {
     if (x<y) {
         return x;
-    }
-    else {
+    } else {
         return y;
     }
 }
@@ -96,17 +93,13 @@ function lesser(x, y) {
 function multigreeting(name, language) {
     if (language === `en`) {
         return `Hello, ${name}!`;
-    }
-    else if (language === `es`) {
+    } else if (language === `es`) {
         return `¡Hola, ${name}!`;
-    }
-    else if (language === `fr`) {
+    } else if (language === `fr`) {
         return `Bonjour, ${name}!`;
-    }
-    else if (language === `eo`) {
+    } else if (language === `eo`) {
         return `Saluton, ${name}!`;
-    }
-    else {
+    } else {
         return undefined;
     }
 }
@@ -135,8 +128,7 @@ function sum(array) {
 function average(array) {
     if (array.length === 0) {
         return undefined;
-    }
-    else {
+    } else {
         return sum(array) / array.length;
     }
 }
@@ -147,11 +139,9 @@ function average(array) {
 function minimum(array) {
     if (array.length === 0) {
         return undefined;
-    }
-    else if (array.length === 1) {
+    } else if (array.length === 1) {
         return array;
-    }
-    else {
+    } else {
         let min = Math.min(...array);
         return min;
     }
@@ -183,16 +173,32 @@ function minimum(array) {
 // https://courses.cs.vt.edu/csonline/Algorithms/Lessons/SelectionSort/index.html
 // to see how. This may make more sense to you.
 
+// function selectionSort(array) {
+//     let arrayCopy = array.slice(0);
+//     if (arrayCopy.length === 0) {
+//         return undefined;
+//     } else { 
+//     let sort = [];
+//     while (sort.length < arrayCopy)
+//         let min = Math.min(...array);
+//         sort.push(min);
+//     return sort;
+//     }
+// }
+
+// I initially thought push would remove the number from the array, which is not the case. 
+
 function selectionSort(array) {
-    let arrayCopy = array.slice(0);
-    if (arrayCopy.length === 0) {
-        return undefined;
-    }
-    else { 
+    let arrayCopy = array.slice(0); 
     let sort = [];
-    while (sort.length < arrayCopy)
+    
+    while (array.length > 0) {
         let min = Math.min(...array);
+        let i = array.indexOf(min)
+        array.splice(i, 1)
+
         sort.push(min);
-    return sort;
     }
+    return sort;
 }
+
